@@ -3,27 +3,27 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        int nbOne;
-        int nbTwo;
-        int nbThree;
+        int nbchoice;
+        int resultat;
+        int fois=1;
 
         try {
-            System.out.print("Entrez le premier nombre : ");
-            nbOne = scanner.nextInt();
+            System.out.print("Ecrire table de 10 : ");
+            nbchoice = scanner.nextInt();
 
-            System.out.print("Entrez le deuxieme nombre : ");
-            nbTwo = scanner.nextInt();
+            String resultToFormat = "%d * %d = %d";
+
+            while (fois <= 10) {
+                resultat = nbchoice * fois;
+                String result = String.format(resultToFormat, fois, nbchoice, resultat);
+                System.out.println(result);
+                fois++;
+            }
             scanner.close();
 
-            nbThree = nbOne * nbTwo;
-            String resultToFormat = "Résultat : %d * %d = %d";
-            String result = String.format(resultToFormat, nbOne, nbTwo, nbThree);
-
-            System.out.println(result);
-        } catch (InputMismatchException e) {
-            System.out.println("Attention ! Tu es sencé mettre un nombre entier");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
